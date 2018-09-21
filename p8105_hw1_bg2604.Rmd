@@ -55,5 +55,4 @@ q2_df = tibble(
 q2_df
 ```
 
-
-
+The size of this dataset is a `r nrow(q2_df)` by `r ncol(q2_df)` table. The mean of x is `r mean(q2_df$x)`.The median of x is `r median(q2_df$x)`. The proportion of cases for which the logical vector is TRUE is `r sum(q2_df$vec_logical)/1000*100`%.
