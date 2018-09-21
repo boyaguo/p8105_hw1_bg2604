@@ -43,7 +43,7 @@ as.numeric(as.character(q1_df$vec_factor))
 ```
 After converting character variable from character to factor to numeric, it was converted successfully. However, I could not convert my factor variable from factor to character to numeric (NA shown up).
 
-```{r Question_2}
+```{r Question_2.1}
 set.seed(1234)
 q2_df = tibble(
   x = rnorm(1000),
@@ -56,3 +56,13 @@ q2_df
 ```
 
 The size of this dataset is a `r nrow(q2_df)` by `r ncol(q2_df)` table. The mean of x is `r mean(q2_df$x)`.The median of x is `r median(q2_df$x)`. The proportion of cases for which the logical vector is TRUE is `r sum(q2_df$vec_logical)/1000*100`%.
+
+
+```{r Question_2.2}
+plot = ggplot(q2_df, aes(x = x, y = y, color =q2_df$vec_logical)) + geom_point()
+
+plot
+ggplot(q2_df, aes(x = x, y = y, color = q2_df$vec_numeric)) + geom_point()
+ggplot(q2_df, aes(x = x, y = y, color = q2_df$vec_factor)) + geom_point()
+ggsave("scatter_plot.pdf", plot, height = 4, width = 6)
+```
